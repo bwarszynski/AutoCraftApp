@@ -6,7 +6,7 @@ export const mechanics = [
     {
         id: "01",
         name: "Jacek Kubik",
-        specialty: "Diagnosta",
+        specialization: "Diagnosta",
         avgRating: 4.3,
         totalRating: 272,
         photo: mechanicImg01,
@@ -16,7 +16,7 @@ export const mechanics = [
     {
         id: "02",
         name: "Maciej Pawlak",
-        specialty: "Wulkanizator",
+        specialization: "Wulkanizator",
         avgRating: 4.8,
         totalRating: 272,
         photo: mechanicImg02,
@@ -26,7 +26,7 @@ export const mechanics = [
     {
         id: "03",
         name: "Kornel Cisek",
-        specialty: "Mechanik",
+        specialization: "Mechanik",
         avgRating: 5.0,
         totalRating: 272,
         photo: mechanicImg03,

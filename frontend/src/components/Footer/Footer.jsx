@@ -40,7 +40,7 @@ const quickLinks01 = [
 
 const quickLinks02 = [
     {
-        path: "/find-a-mechanic",
+        path: "/mechanics",
         display: "Znajdź mechanika",
     },
     {

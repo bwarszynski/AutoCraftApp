@@ -11,7 +11,7 @@ const MechanicSchema = new mongoose.Schema({
     type: String,
   },
 
-  // Fields for mechanics only
+  // Pole wyłącznie dla mechaników
   specialization: { type: String },
   qualifications: {
     type: Array,

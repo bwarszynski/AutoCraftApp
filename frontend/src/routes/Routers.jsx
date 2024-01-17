@@ -6,7 +6,12 @@ import Signup from "../pages/Signup.jsx";
 import Contact from "../pages/Contact.jsx";
 import Mechanics from "../pages/Mechanics/Mechanics.jsx";
 import MechanicDetails from "../pages/Mechanics/MechanicDetails.jsx";
+import Warehouse from "../pages/WarehouseSystem.jsx";
+import MyAccount from "../Dashboard/user-account/MyAccount.jsx";
+import Dashboard from "../Dashboard/mechanic-account/Dashboard.jsx";
 import {Routes, Route} from "react-router-dom";
+import ProtectedRoute from "./ProtectedRoute.jsx";
+import CheckoutSuccess from "../pages/CheckoutSuccess.jsx";
 
 const Routers = () => {
     return <Routes>
@@ -18,6 +23,20 @@ const Routers = () => {
         <Route path="/register" element={<Signup/>}/>
         <Route path="/contact" element={<Contact/>}/>
         <Route path="/services" element={<Services/>}/>
+        <Route path="/warehouse" element={<Warehouse/>}/>
+        <Route
+            path="/users/profile/me"
+            element={
+            <ProtectedRoute allowedRoles={["customer"]}>
+                <MyAccount/>
+            </ProtectedRoute>
+        }
+        />
+        <Route
+            path="/mechanics/profile/me"
+            element={ <ProtectedRoute
+                allowedRoles={["mechanic"]}> <Dashboard/> </ProtectedRoute>}/>
+        <Route path="/checkout-success" element={<CheckoutSuccess />} />
     </Routes>
 };
 

@@ -1,6 +1,20 @@
-import React from 'react';
+import React, {useRef} from 'react';
+import emailjs from '@emailjs/browser'
 
-const Contact = () => {
+export const Contact = () => {
+
+    const form = useRef();
+
+    const sendEmail = (e) => {
+        e.preventDefault();
+
+        emailjs.sendForm('service_ti4pw2r', 'template_6uw2i6g', form.current, 'zI131geOQfspuyBaL')
+            .then((result) => {
+                console.log(result.text);
+            }, (error) => {
+                console.log(error.text);
+            });
+    }
     return (
         <section>
             <div className="px-4 mx-auto max-w-screen-md">
@@ -13,20 +27,23 @@ const Contact = () => {
                 <form action="#" className="space-y-8">
                     <div>
                         <label htmlFor="email" className="form__label">
-                            Twój e-mail</label>
+                            Twój e-mail
+                        </label>
                         <input
                             type="email"
+                            name="user_email"
                             id="email"
                             placeholder="przykład@email.com"
                             className="form__input mt-1"/>
                     </div>
                     <div>
                         <label htmlFor="subject" className="form__label">
-                            Temat</label>
+                            Imię</label>
                         <input
                             type="text"
+                            name="user_name"
                             id="subject"
-                            placeholder="Napisz nam, co możemy zrobić"
+                            placeholder="Jak się nazywasz"
                             className="form__input mt-1"/>
                     </div>
                     <div className="sm:col-span-2">
@@ -35,17 +52,19 @@ const Contact = () => {
                         <textarea
                             rows="6"
                             type="text"
+                            name="message"
                             id="message"
                             placeholder="Pozostaw nam wiadomość..."
                             className="form__input mt-1"/>
                     </div>
-                    <button type="submit" className="btn rounded sm:w-fit">
+                    <input type="submit" value="Send" />
+                    <button type="submit" value="Send" className="btn rounded sm:w-fit">
                         Wyślij
                     </button>
                 </form>
             </div>
         </section>
     );
-};
+}
 
 export default Contact;

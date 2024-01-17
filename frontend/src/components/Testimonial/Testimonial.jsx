@@ -4,6 +4,10 @@ import {Swiper, SwiperSlide} from "swiper/react";
 import 'swiper/css'
 import 'swiper/css/pagination'
 import clientAvatar from "../../assets/images/client-avatar.png"
+import clientAvatar1 from "../../assets/images/client-avatar1.jpg"
+import clientAvatar2 from "../../assets/images/client-avatar2.jpg"
+import clientAvatar3 from "../../assets/images/client-avatar3.jpg"
+import clientAvatar4 from "../../assets/images/client-avatar4.jpg"
 import {HiStar} from "react-icons/hi";
 
 const Testimonial = () => {
@@ -51,10 +55,10 @@ const Testimonial = () => {
                 <SwiperSlide>
                     <div className="py-[30px] px-5 rounded-[13px]">
                         <div className="flex items-center gap-[13px]">
-                            <img src={clientAvatar} alt=""/>
+                            <img src={clientAvatar1} width="150" alt=""/>
                             <div>
                                 <h4 className="text-[18px] leading-[30px] font-semibold text-headingColor">
-                                    Adam Krzysztofiuk
+                                    Piotr Wołoszański
                                 </h4>
                                 <div className="flex items-center gap-[2px]">
                                     <HiStar className="text-yellow w-[18px] h-5"/>
@@ -65,16 +69,16 @@ const Testimonial = () => {
                                 </div>
                             </div>
                         </div>
-                        <p className="text-[16px] leading-7 mt-4 text-textColor font-[400]">"Bardzo dobra cena, dodatkowo warsztat czysty, naprawa zgodnie z umówionym czasem. Wszystko wykonane bardzo dobrze, w standardzie serwisu."</p>
+                        <p className="text-[16px] leading-7 mt-4 text-textColor font-[400]">"Najlepszy warsztat w Tucholi."</p>
                     </div>
                 </SwiperSlide>
                 <SwiperSlide>
                     <div className="py-[30px] px-5 rounded-[13px]">
                         <div className="flex items-center gap-[13px]">
-                            <img src={clientAvatar} alt=""/>
+                            <img src={clientAvatar2} width="150" alt=""/>
                             <div>
                                 <h4 className="text-[18px] leading-[30px] font-semibold text-headingColor">
-                                    Adam Krzysztofiuk
+                                    Grzegorz Wiese
                                 </h4>
                                 <div className="flex items-center gap-[2px]">
                                     <HiStar className="text-yellow w-[18px] h-5"/>
@@ -85,16 +89,16 @@ const Testimonial = () => {
                                 </div>
                             </div>
                         </div>
-                        <p className="text-[16px] leading-7 mt-4 text-textColor font-[400]">"Bardzo dobra cena, dodatkowo warsztat czysty, naprawa zgodnie z umówionym czasem. Wszystko wykonane bardzo dobrze, w standardzie serwisu."</p>
+                        <p className="text-[16px] leading-7 mt-4 text-textColor font-[400]">"Wysoki poziom obsługi i bardzo rozsądne ceny."</p>
                     </div>
                 </SwiperSlide>
                 <SwiperSlide>
                     <div className="py-[30px] px-5 rounded-[13px]">
                         <div className="flex items-center gap-[13px]">
-                            <img src={clientAvatar} alt=""/>
+                            <img src={clientAvatar3} width="150" alt=""/>
                             <div>
                                 <h4 className="text-[18px] leading-[30px] font-semibold text-headingColor">
-                                    Adam Krzysztofiuk
+                                    Marek Borysewicz
                                 </h4>
                                 <div className="flex items-center gap-[2px]">
                                     <HiStar className="text-yellow w-[18px] h-5"/>
@@ -105,16 +109,16 @@ const Testimonial = () => {
                                 </div>
                             </div>
                         </div>
-                        <p className="text-[16px] leading-7 mt-4 text-textColor font-[400]">"Bardzo dobra cena, dodatkowo warsztat czysty, naprawa zgodnie z umówionym czasem. Wszystko wykonane bardzo dobrze, w standardzie serwisu."</p>
+                        <p className="text-[16px] leading-7 mt-4 text-textColor font-[400]">"Profesjonalna załoga, zawsze można liczyć na rzetelną opinię i diagnostykę."</p>
                     </div>
                 </SwiperSlide>
                 <SwiperSlide>
                     <div className="py-[30px] px-5 rounded-[13px]">
                         <div className="flex items-center gap-[13px]">
-                            <img src={clientAvatar} alt=""/>
+                            <img src={clientAvatar4} width="150" alt=""/>
                             <div>
                                 <h4 className="text-[18px] leading-[30px] font-semibold text-headingColor">
-                                    Adam Krzysztofiuk
+                                    Andrii Kovalchuk
                                 </h4>
                                 <div className="flex items-center gap-[2px]">
                                     <HiStar className="text-yellow w-[18px] h-5"/>
@@ -125,7 +129,7 @@ const Testimonial = () => {
                                 </div>
                             </div>
                         </div>
-                        <p className="text-[16px] leading-7 mt-4 text-textColor font-[400]">"Bardzo dobra cena, dodatkowo warsztat czysty, naprawa zgodnie z umówionym czasem. Wszystko wykonane bardzo dobrze, w standardzie serwisu."</p>
+                        <p className="text-[16px] leading-7 mt-4 text-textColor font-[400]">"Są najlepsi, nigdy nie odmawiają pomocy."</p>
                     </div>
                 </SwiperSlide>
             </Swiper>

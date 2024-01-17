@@ -25,10 +25,10 @@ export const authenticate = async (req, res, next) => {
 
         next(); // musi być wezwanie następnej funkcji
     } catch (err) {
-        if (err.name === 'TokenExpiredError') {
+        if (err.name === "TokenExpiredError") {
             return res
                 .status(401)
-                .json({message: "Token wygasł"});
+                .json({success: false, message: "Token wygasł"});
         }
         return res
             .status(401)
@@ -44,11 +44,12 @@ export const restrict = roles => async (req, res, next) => {
     const customer = await User.findById(userId);
     const mechanic = await Mechanic.findById(userId);
 
-    if(customer){
+    if (customer) {
         user = customer;
-    }
-    if(mechanic){
+    } else if (mechanic) {
         user = mechanic;
+    } else {
+        return res.status(404).json({ message: "Nie znaleziono użytkownika" });
     }
 
     if(!roles.includes(user.role)){
@@ -56,4 +57,9 @@ export const restrict = roles => async (req, res, next) => {
     }
 
     next();
-}
+};
+
+//middleware do autentykacji poszczególnych dostepów
+export const adminAuth = restrict(["admin"]);
+export const mechanicAuth = restrict(["mechanic"]);
+export const customerAuth = restrict(["customer", "admin"]);

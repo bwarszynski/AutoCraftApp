@@ -7,6 +7,8 @@ import authRoute from './Routes/auth.js';
 import userRoute from './Routes/user.js';
 import mechanicRoute from './Routes/mechanic.js';
 import reviewRoute from './Routes/review.js';
+import bookingRoute from './Routes/booking.js';
+
 
 dotenv.config()
 
@@ -17,9 +19,9 @@ const corsOptions = {
     origin: true,
 }
 
-app.get('/', (req, res) => {
-    res.send('API uruchomione...')
-})
+app.get("/", (req, res) => {
+    res.send('API uruchomione...');
+});
 
 // Połączenie z bazą danych
 mongoose.set('strictQuery', false);
@@ -41,6 +43,7 @@ app.use('/api/v1/auth', authRoute); //domena/api/v1/auth/register
 app.use('/api/v1/users', userRoute); //domena/api/v1/users/:id
 app.use('/api/v1/mechanics', mechanicRoute); //domena/api/v1/mechanics/:id
 app.use('/api/v1/reviews', reviewRoute); //domena/api/v1/reviews/
+app.use('/api/v1/bookings', bookingRoute); //domena/api/v1/bookings/
 
 
 app.listen(port, () => {

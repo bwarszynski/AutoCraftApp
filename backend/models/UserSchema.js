@@ -11,8 +11,9 @@ const UserSchema = new mongoose.Schema({
     enum: ["customer", "admin"],
     default: "customer",
   },
-  gender: { type: String, enum: ["mężczyzna", "kobieta", "inna"] },
+  gender: { type: String, enum: ["male", "female", "other"] },
   appointments: [{ type: mongoose.Types.ObjectId, ref: "Appointment" }],
+  carModel: { type: String },
 });
 
 export default mongoose.model("User", UserSchema);

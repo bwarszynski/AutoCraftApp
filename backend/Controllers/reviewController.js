@@ -8,7 +8,7 @@ export const getAllReviews = async (req, res) => {
     const reviews = await Review.find({});
     res.status(200).json({success:true, message:"OK", data: reviews});
   } catch (err) {
-    res.status(404).json({success:false, message: "Nie znaleziono", data:reviews });
+    res.status(404).json({success:false, message: "Nie znaleziono" });
   }
 };
 
@@ -16,7 +16,7 @@ export const getAllReviews = async (req, res) => {
 
 export const createReview = async (req, res) => {
     if(!req.body.mechanic) req.body.mechanic = req.params.mechanicId;
-    if(!req.body.user) req.body.user = req.params.userId;
+    if(!req.body.user) req.body.user = req.userId;
 
     const newReview = new Review(req.body);
 
@@ -31,6 +31,6 @@ export const createReview = async (req, res) => {
             .status(200)
             .json({ success: true, message: "Recenzja została dodana", data: savedReview });
     } catch(err) {
-res.status(500).json({success: false, message: err.message});
+        res.status(500).json({success: false, message: err.message});
     }
 }

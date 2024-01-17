@@ -14,7 +14,7 @@ const generateToken = user => {
             expiresIn: '15d',
         }
     );
-}
+};
 
 export const register = async (req, res) => {
     const {email, password, name, role, photo, gender} = req.body;
@@ -23,9 +23,9 @@ export const register = async (req, res) => {
         let user = null;
 
         if (role === "customer") {
-            user = await User.findOne({email});
+            user = await User.findOne({ email });
         } else if (role === "mechanic") {
-            user = await Mechanic.findOne({email});
+            user = await Mechanic.findOne({ email });
         }
         //sprawdzanie czy użytkownik istnieje
         if (user) {
@@ -76,23 +76,22 @@ export const login = async (req, res) => {
     const {email} = req.body
 
     try {
-        let user = null
+        let user = null;
 
-        const customer = await User.findOne({email})
-        const mechanic = await Mechanic.findOne({email})
+        const customer = await User.findOne({ email })
+        const mechanic = await Mechanic.findOne({ email })
 
-        if(customer){
+        if (customer) {
             user = customer;
-        }
-        if(mechanic){
+        } else if (mechanic) {
             user = mechanic;
         }
 
         //sprawdzanie czy użytkownik istnieje
         if (!user) {
             return res
-                .status(404)
-                .json({message: "Nie znaleziono użytkownika"});
+                .status(400)
+                .json({success: false, message: "Nie znaleziono użytkownika"});
         }
 
         //porównaj hasła
@@ -100,18 +99,18 @@ export const login = async (req, res) => {
 
         if(!isPasswordMatch){
             return res
-                .status(404)
-                .json({status: false, message: "Niepoprawne dane logowania"});
+                .status(400)
+                .json({success: false, message: "Niepoprawne dane logowania"});
         }
 
         // generowanie tokena
         const token = generateToken(user);
 
-        const {password, role, appointments, ...rest} = user._doc
+        const {password, role, appointments, ...rest} = user._doc;
 
-        res.status(200).json({status: true, message: "Zalogowano pomyślnie", token, data:{...rest}, role })
+        res.status(200).json({success: true, message: "Zalogowano pomyślnie", token, data:{...rest}, role })
 
     } catch (err) {
-    res.status(500).json({status: false, message: "Nie udało się zalogować"})
+    res.status(500).json({success: false, message: "Nie udało się zalogować"})
     }
 };

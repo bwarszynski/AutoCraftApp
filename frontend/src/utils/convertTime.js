@@ -3,9 +3,9 @@ const convertTime = time => {
     let hours = parseInt(timeParts[0]);
     const minutes = parseInt(timeParts[1]);
 
-    let meridiem = "am";
+    let meridiem = "AM";
     if (hours >= 12) {
-        meridiem = "pm";
+        meridiem = "PM";
         if (hours > 12) {
             hours -= 12;
         }

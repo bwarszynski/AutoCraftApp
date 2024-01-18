@@ -1,20 +1,40 @@
-import React, {useRef} from 'react';
+import React, {useRef, useState} from 'react';
 import emailjs from '@emailjs/browser'
 
 export const Contact = () => {
 
-    const form = useRef();
+    const [name, setName] = useState('');
+    const [email, setEmail] = useState('');
+    const [message, setMessage] = useState('');
 
-    const sendEmail = (e) => {
+    const handleSubmit = (e) => {
         e.preventDefault();
 
-        emailjs.sendForm('service_ti4pw2r', 'template_6uw2i6g', form.current, 'zI131geOQfspuyBaL')
-            .then((result) => {
-                console.log(result.text);
-            }, (error) => {
-                console.log(error.text);
+        //klucze emailjsa podpięte do konta obsługującego
+        const serviceId = 'service_jhkf5up';
+        const templateId = 'template_6uw2i6g';
+        const publicKey = 'zI131geOQfspuyBaL';
+
+        // Nowy obiekt zawierający dane z template'a
+        const templateParams = {
+            from_name: name,
+            from_email: email,
+            to_name: 'ContactMaster',
+            message: message,
+        };
+
+        // Wysyłanie wiadomości za pomocą emailjs
+        emailjs.send(serviceId, templateId, templateParams, publicKey)
+            .then((response) => {
+                console.log('Email wysłany poprawnie!', response);
+                setName('');
+                setEmail('');
+                setMessage('');
+            }).catch ((error) => {
+                console.error('Problem z wysyłką maila', error);
             });
     }
+
     return (
         <section>
             <div className="px-4 mx-auto max-w-screen-md">
@@ -24,41 +44,42 @@ export const Contact = () => {
                 <p className="mb-8 lg:mb-16 font-light text-center text__para">
                     Masz problem techniczny? Chcesz zgłosić błąd? Daj nam znać!
                 </p>
-                <form action="#" className="space-y-8">
+                <form  onSubmit={handleSubmit} className="space-y-8">
                     <div>
                         <label htmlFor="email" className="form__label">
                             Twój e-mail
                         </label>
                         <input
                             type="email"
-                            name="user_email"
-                            id="email"
-                            placeholder="przykład@email.com"
-                            className="form__input mt-1"/>
+                            value={email}
+                            placeholder="Wpisz e-mail"
+                            className="form__input mt-1"
+                            onChange={(e) => setEmail(e.target.value)}
+                        />
                     </div>
                     <div>
                         <label htmlFor="subject" className="form__label">
                             Imię</label>
                         <input
                             type="text"
-                            name="user_name"
-                            id="subject"
+                            value={name}
                             placeholder="Jak się nazywasz"
-                            className="form__input mt-1"/>
+                            className="form__input mt-1"
+                            onChange={(e) => setName(e.target.value)}
+                        />
                     </div>
                     <div className="sm:col-span-2">
                         <label htmlFor="message" className="form__label">
                             Twoja wiadomość</label>
                         <textarea
                             rows="6"
-                            type="text"
-                            name="message"
-                            id="message"
+                            value={message}
                             placeholder="Pozostaw nam wiadomość..."
-                            className="form__input mt-1"/>
+                            className="form__input mt-1"
+                            onChange={(e) => setMessage(e.target.value)}
+                        />
                     </div>
-                    <input type="submit" value="Send" />
-                    <button type="submit" value="Send" className="btn rounded sm:w-fit">
+                    <button type="submit" className="btn rounded sm:w-fit">
                         Wyślij
                     </button>
                 </form>

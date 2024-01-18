@@ -4,10 +4,10 @@ import {Swiper, SwiperSlide} from "swiper/react";
 import 'swiper/css'
 import 'swiper/css/pagination'
 import clientAvatar from "../../assets/images/client-avatar.png"
-import clientAvatar1 from "../../assets/images/client-avatar1.jpg"
-import clientAvatar2 from "../../assets/images/client-avatar2.jpg"
-import clientAvatar3 from "../../assets/images/client-avatar3.jpg"
-import clientAvatar4 from "../../assets/images/client-avatar4.jpg"
+import clientAvatar1 from "../../assets/images/client-avatar1.png"
+import clientAvatar2 from "../../assets/images/client-avatar2.png"
+import clientAvatar3 from "../../assets/images/client-avatar3.png"
+import clientAvatar4 from "../../assets/images/client-avatar4.png"
 import {HiStar} from "react-icons/hi";
 
 const Testimonial = () => {
@@ -55,7 +55,7 @@ const Testimonial = () => {
                 <SwiperSlide>
                     <div className="py-[30px] px-5 rounded-[13px]">
                         <div className="flex items-center gap-[13px]">
-                            <img src={clientAvatar1} width="150" alt=""/>
+                            <img src={clientAvatar1} alt=""/>
                             <div>
                                 <h4 className="text-[18px] leading-[30px] font-semibold text-headingColor">
                                     Piotr Wołoszański
@@ -75,7 +75,7 @@ const Testimonial = () => {
                 <SwiperSlide>
                     <div className="py-[30px] px-5 rounded-[13px]">
                         <div className="flex items-center gap-[13px]">
-                            <img src={clientAvatar2} width="150" alt=""/>
+                            <img src={clientAvatar2} alt=""/>
                             <div>
                                 <h4 className="text-[18px] leading-[30px] font-semibold text-headingColor">
                                     Grzegorz Wiese
@@ -95,7 +95,7 @@ const Testimonial = () => {
                 <SwiperSlide>
                     <div className="py-[30px] px-5 rounded-[13px]">
                         <div className="flex items-center gap-[13px]">
-                            <img src={clientAvatar3} width="150" alt=""/>
+                            <img src={clientAvatar3} alt=""/>
                             <div>
                                 <h4 className="text-[18px] leading-[30px] font-semibold text-headingColor">
                                     Marek Borysewicz
@@ -115,7 +115,7 @@ const Testimonial = () => {
                 <SwiperSlide>
                     <div className="py-[30px] px-5 rounded-[13px]">
                         <div className="flex items-center gap-[13px]">
-                            <img src={clientAvatar4} width="150" alt=""/>
+                            <img src={clientAvatar4} alt=""/>
                             <div>
                                 <h4 className="text-[18px] leading-[30px] font-semibold text-headingColor">
                                     Andrii Kovalchuk

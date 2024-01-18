@@ -36,9 +36,11 @@ const Home = () => {
                                     Nasz warsztat zapewnia szeroką gamę usług, które zadbają o to, by twoje auto
                                     cieszyło cię długą i bezawaryjną jazdą.
                                 </p>
-                                <button className="btn">
-                                    Zarezerwuj wizytę
-                                </button>
+                                <Link to='/mechanics'>
+                                    <button className="btn">
+                                        Zarezerwuj wizytę
+                                    </button>
+                                </Link>
                             </div>
                             {/* rekomendacje */}
                             <div
@@ -79,8 +81,8 @@ const Home = () => {
                                 <img className="w-full" src={heroImg01} alt=""/>
                             </div>
                             <div className="mt-[30px]">
-                                <img src={heroImg02} alt="" className="w-full mb-[30px]"/>
-                                <img src={heroImg03} alt="" className="w-full"/>
+                                <img src={heroImg02} alt="" className="w-2/3 mb-[30px]"/>
+                                <img src={heroImg03} alt="" className="w-2/3"/>
                             </div>
                         </div>
                     </div>
@@ -201,7 +203,7 @@ const Home = () => {
                                     3. Wybierz dogodny termin i zarezerwuj przez stronę internetową
                                 </li>
                             </ul>
-                            <Link to="/">
+                            <Link to="/mechanics">
                                 <button className="btn">Dowiedz się więcej</button>
                             </Link>
                         </div>

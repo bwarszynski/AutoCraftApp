@@ -23,7 +23,14 @@ const Routers = () => {
         <Route path="/register" element={<Signup/>}/>
         <Route path="/contact" element={<Contact/>}/>
         <Route path="/services" element={<Services/>}/>
-        <Route path="/warehouse" element={<Warehouse/>}/>
+        <Route
+            path="/warehouse"
+            element={
+            <ProtectedRoute allowedRoles={["mechanic"]}>
+                <Warehouse/>
+            </ProtectedRoute>
+        }
+        />
         <Route
             path="/users/profile/me"
             element={
@@ -34,8 +41,12 @@ const Routers = () => {
         />
         <Route
             path="/mechanics/profile/me"
-            element={ <ProtectedRoute
-                allowedRoles={["mechanic"]}> <Dashboard/> </ProtectedRoute>}/>
+            element={
+            <ProtectedRoute allowedRoles={["mechanic"]}>
+                <Dashboard/>
+            </ProtectedRoute>
+        }
+        />
         <Route path="/checkout-success" element={<CheckoutSuccess />} />
     </Routes>
 };

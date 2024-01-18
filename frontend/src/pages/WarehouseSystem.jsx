@@ -100,11 +100,11 @@ const WarehouseSystem = () => {
 
     const handleDownloadPDF = () => {
         const pdf = new jsPDF();
-        pdf.text('System zarządzania magazynem i zamówieniami', 20, 10);
+        pdf.text('System zarzadzania magazynem i zamowieniami', 20, 10);
 
         products.forEach((product, index) => {
             pdf.text(
-                `${index + 1}. ${product.name} - Ilość: ${product.quantity}`,
+                `${index + 1}. ${product.name} - Ilosc: ${product.quantity}`,
                 20,
                 20 + index * 10
             );
